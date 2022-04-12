@@ -1,15 +1,17 @@
 import './Question.css'
+import Answer from '../components/Answer'
 
-export default function Question() {
+export default function Question(props) {
   return (
     <div className='question'>
-      <h3>Question here?</h3>
+      <h3>{props.q}</h3>
       <div className='answers'>
-        <button className='answer-btn'>Answer here</button>
-        <button className='answer-btn'>Answer here</button>
-        <button className='answer-btn'>Answer here</button>
-        <button className='answer-btn'>Answer here</button>
+        <Answer />
+        <Answer />
+        <Answer />
+        <Answer />
       </div>
+      
     </div>
   )
 }

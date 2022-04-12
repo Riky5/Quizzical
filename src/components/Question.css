@@ -2,22 +2,16 @@
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid rgb(209, 207, 207);
+  max-width: 560px;
+  width: 100%;
+}
+
+h3 {
+  font-size: 1.2em;
 }
 
 .answers {
   display: flex;
   padding: .5em;
   margin-bottom: .8em;
-}
-
-h3 {
-  font-size: 1.3em;
-}
-
-.answer-btn {
-  border-radius: 12px;
-  height: 2.6em;
-  margin-inline: .8em;
-  background-color: white;
-  border: 1.4px solid rgb(19, 58, 167);
 }
