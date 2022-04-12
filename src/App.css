@@ -6,33 +6,24 @@
   width: 100vw;
 }
 
-section {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  max-width: 16em;
-  width: 100%;
+.qm-left, .qm-right {
+  display: block;
+  height: 20em;
+  width: 20em;
+  position: fixed;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5)
 }
 
-h1 {
-  font-size: 3em;
-  margin-bottom: .4em;
+.qm-left {
+  bottom: -15px;
+  left: -55px;
+  transform: rotate(30deg);
 }
 
-p {
-  font-size: 1.2em;
+.qm-right {
+  top: -45px;
+  right: -55px;
+  transform: rotate(-45deg);
 }
-
-button {
-  height: 3em;
-  width: 10em;
-  border-radius: 20px;
-  border: none;
-  background-color: rgb(41, 105, 216);
-  color: white;
-  font-weight: bold;
-  align-self: center;
-  font-size: 1.4em;
-  margin-top: 1em;
-}
-
