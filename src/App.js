@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Homepage from './components/Homepage'
 import Question from './components/Question'
 import questionMark from './images/question_mark.jpg'
+import { nanoid } from 'nanoid'
 
 function App() {
   const [quiz, setQuiz] = useState(true)
@@ -12,17 +13,23 @@ function App() {
     setQuiz(true)
   }
 
-  const [questions, setQuestions] = useState([])
+  const [questionAndAnswers, setQuestionAndAnswers] = useState([])
 
     useEffect(()=>{
       fetch('https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple')
       .then(res => res.json())
-      .then(data => setQuestions(data.results))
+      .then(data => setQuestionAndAnswers(data.results))
     },[])
-    
-    const questionData = questions.map((item,index) => {
+
+    const questionData = questionAndAnswers.map(item => {
+      const newItem = {
+        question: item.question,
+        incorrect_answers: item.incorrect_answers,
+        correct_answer: item.correct_answer,
+        id: nanoid()
+      }
       return (
-        <Question key={index} q={item.question} />
+        <Question key={newItem.id} data={newItem} />
       )
     })
 

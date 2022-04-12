@@ -1,7 +1,9 @@
 .answer-btn {
   border-radius: 12px;
   height: 2.6em;
-  margin-inline: .8em;
+  min-width: 7.6em;
+  width: 100%;
+  /* margin-inline: 1em; */
   background-color: white;
   border: 1.4px solid rgb(19, 58, 167);
 }
