@@ -3,7 +3,12 @@
   height: 2.6em;
   min-width: 7.6em;
   width: 100%;
-  /* margin-inline: 1em; */
   background-color: white;
   border: 1.4px solid rgb(19, 58, 167);
+  cursor: pointer;
+}
+
+.answer-btn:hover {
+  background-color: blue;
+  color:white;
 }
