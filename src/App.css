@@ -27,3 +27,14 @@
   right: -75px;
   transform: rotate(-45deg);
 }
+
+.checkAnswers {
+  border-radius: 15px;
+  border: none;
+  height: 3.2em;
+  width: 11em;
+  color: white;
+  font-weight: bold;
+  background-color: rgb(41, 105, 216);
+  margin-top: 2.8em;
+}
