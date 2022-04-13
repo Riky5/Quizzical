@@ -1,34 +1,14 @@
 import './Question.css'
 import Answer from '../components/Answer'
 import { useEffect, useState } from 'react'
-import { nanoid } from 'nanoid'
 
 export default function Question(props) {
   const [answers, setAnswers] = useState([])
-
-  useEffect(()=>{
-    const answerArray = []
-    props.data.incorrect_answers.forEach((answer)=>answerArray.push({
-      id: nanoid(),
-      answer: answer,
-      isSelected: false
-    }))
-    answerArray.push({
-      id: nanoid(),
-      answer: props.data.correct_answer,
-      isSelected: false
-    })
-    const randomized = randomizeAnswers(answerArray)
-    setAnswers(randomized)
-  },[])
+  const [correct, setCorrect] = useState(false)
   
-  function randomizeAnswers(arr) {
-    return [...arr].map( (_, i, arrCopy) => {
-      let rand = i + ( Math.floor( Math.random() * (arrCopy.length - i) ) );
-      [arrCopy[rand], arrCopy[i]] = [arrCopy[i], arrCopy[rand]]
-      return arrCopy[i]
-    })
-  }
+  useEffect(()=>{
+    setAnswers(props.data.allAnswers)
+  },[props.data.allAnswers])
   
   const answerData = answers.map((answer)=>{
     return (
@@ -49,14 +29,15 @@ export default function Question(props) {
       return answer
     })
     setAnswers(newAnswers)
+    return;
   }
   
   return (
     <div className='question'>
-      <h3>{props.data.question}</h3>
-      <div className='answers'>
-        {answerData}
-      </div> 
+        <h3>{props.data.question}</h3>
+        <div className='answers'>
+          {answerData}
+        </div> 
     </div>
   )
 }

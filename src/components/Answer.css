@@ -4,11 +4,10 @@
   min-width: 7.6em;
   width: 100%;
   background-color: white;
-  border: 1.4px solid rgb(19, 58, 167);
+  border: 1.4px solid rgb(30, 65, 159);
   cursor: pointer;
 }
 
 .answer-btn:hover {
-  background-color: blue;
-  color:white;
+  background-color: #4d94ff;
 }
