@@ -1,4 +1,4 @@
-.answer-btn {
+.answer-btn, .selected-btn {
   border-radius: 12px;
   height: 2.6em;
   min-width: 7.6em;
@@ -10,4 +10,9 @@
 
 .answer-btn:hover {
   background-color: #4d94ff;
+}
+
+.selected-btn {
+  background-color: #99c2ff;
+  border: none;
 }

@@ -28,13 +28,17 @@ function App() {
           answerArray.push({
             id: nanoid(),
             answer: answer,
-            isSelected: false
+            isSelected: false,
+            isCorrect: false,
+            backgroundColor: ""
           })
         })
         answerArray.push({
           id: nanoid(),
           answer: item.correct_answer,
-          isSelected: false
+          isSelected: false,
+          isCorrect: true,
+          backgroundColor: ""
         })
         return {
           id: nanoid(),
@@ -53,25 +57,42 @@ function App() {
         return arrCopy[i]
       })
     }
+    
+    function checkAnswersOrPlayAgain() {
+      if (result) {
+        console.log("start new quiz")
+        setQuiz(false)
+        setScore(0)
+        setResult(false)
+      } else {
+        setResult(true)
+        const newData = newQuestionAndAnswers.map(obj=>{
+          const newAnswers =  obj.allAnswers.map(a=>{
+            if (a.isSelected && a.answer === obj.correct_answer) {
+              setScore(prev => prev += 1)
+              a.backgroundColor = "#b3ffe0"
+            } else if (a.isSelected && a.answer !== obj.correct_answer) {
+              a.backgroundColor = "#ff99c2"
+            } else {
+              a.backgroundColor = ""
+            }
+            return a
+          })
+          return {
+             ...obj,
+             allAnswers: newAnswers
+          }
+        })
+        setNewQuestionAndAnswers(newData)
+      }  
+    }
 
     const questionData = newQuestionAndAnswers.map(item => {
       return (
-        <Question key={item.id} data={item} checkAnswers={()=>checkAnswers()} />
+        <Question key={item.id} data={item} checkAnswers={()=>checkAnswersOrPlayAgain()} />
       )
     })
-
-    function checkAnswers() {
-      // setResult(true)
-      // return answers.map(a=>{
-      //   if(a.isSelected && a.answer === correct_item) {
-      //     setScore(prev=>prev++)
-      //     return "Green"
-      //   } else {
-      //     return "Red"
-      //   }
-      // })
-    }
-
+    
   return (
     <div className="App" style={styles}>
       <img className='qm-left' src={questionMark} alt="question_mark" />
@@ -79,7 +100,7 @@ function App() {
       {quiz && questionData}
       <img className='qm-right' src={questionMark} alt="question_mark" />
       {result && <p>You scored {score}/5 correct answers</p>}
-      {quiz && <button onClick={checkAnswers} className='checkAnswers'>{result ? "Play Again" : "Check Answer"}</button>}
+      {quiz && <button onClick={checkAnswersOrPlayAgain} className='checkAnswers'>{result ? "Play Again" : "Check Answer"}</button>}
     </div>
   );
 }

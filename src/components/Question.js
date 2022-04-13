@@ -3,19 +3,20 @@ import Answer from '../components/Answer'
 import { useEffect, useState } from 'react'
 
 export default function Question(props) {
+  
   const [answers, setAnswers] = useState([])
-  const [correct, setCorrect] = useState(false)
   
   useEffect(()=>{
     setAnswers(props.data.allAnswers)
   },[props.data.allAnswers])
-  
-  const answerData = answers.map((answer)=>{
+  // console.log(answers)
+  const answerData = answers.map(answer=>{
     return (
       <Answer 
       key={answer.id} 
       a={answer.answer}
       isSelected={answer.isSelected}
+      backgroundColor={answer.backgroundColor}
       selectAnswer={()=>selectAnswer(answer.id)} 
       />
     )
