@@ -9,7 +9,7 @@ export default function Question(props) {
   useEffect(()=>{
     setAnswers(props.data.allAnswers)
   },[props.data.allAnswers])
-  // console.log(answers)
+
   const answerData = answers.map(answer=>{
     return (
       <Answer 

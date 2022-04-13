@@ -60,7 +60,6 @@ function App() {
     
     function checkAnswersOrPlayAgain() {
       if (result) {
-        console.log("start new quiz")
         setQuiz(false)
         setScore(0)
         setResult(false)
