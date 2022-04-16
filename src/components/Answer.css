@@ -16,3 +16,13 @@
   background-color: #99c2ff;
   border: none;
 }
+
+@media (max-width: 450px) {
+  .answer-btn,
+  .selected-btn {
+    min-width: 0;
+    width: 6.6em;
+    word-wrap: break-word;
+    height: 4em;
+  }
+}

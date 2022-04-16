@@ -39,3 +39,19 @@
   margin-top: 2.8em;
   cursor: pointer;
 }
+
+@media (max-height: 600px) {
+  .App {
+    height: unset;
+  }
+}
+
+@media (max-width: 550px) {
+  .App {
+    height: unset;
+  }
+  .qm-left,
+  .qm-right {
+    display: none;
+  }
+}

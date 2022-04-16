@@ -2,22 +2,22 @@ section {
   display: flex;
   flex-direction: column;
   text-align: center;
-  max-width: 16em;
+  max-width: 26em;
   width: 100%;
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 5em;
   margin-bottom: .4em;
 }
 
 p {
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 .startQuiz {
   height: 3em;
-  width: 10em;
+  width: 14em;
   border-radius: 20px;
   border: none;
   background-color: rgb(41, 105, 216);
@@ -25,6 +25,25 @@ p {
   font-weight: bold;
   align-self: center;
   font-size: 1.4em;
-  margin-top: 1em;
+  margin-top: 2em;
   cursor: pointer;
+}
+
+@media (max-width: 550px) {
+  section {
+    padding-inline: 1em;
+  }
+  h1 {
+    font-size: 2.4em;
+    margin-bottom: .1em;
+  }
+  p {
+    font-size: 1em;
+    padding-inline: 1em;
+  }
+  .startQuiz {
+    height: 2em;
+    width: 10em;
+    margin-top: .4em;
+  }
 }
