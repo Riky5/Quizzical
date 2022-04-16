@@ -98,7 +98,7 @@ function App() {
       {!quiz && <Homepage startQuiz={startQuiz} />}
       {quiz && questionData}
       <img className='qm-right' src={questionMark} alt="question_mark" />
-      {result && <p>You scored {score}/5 correct answers</p>}
+      {result && <p className='score'>You scored {score}/5 correct answers</p>}
       {quiz && <button onClick={checkAnswersOrPlayAgain} className='checkAnswers'>{result ? "Play Again" : "Check Answer"}</button>}
     </div>
   );
