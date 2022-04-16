@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid rgb(209, 207, 207);
-  max-width: 600px;
+  max-width: 42em;
   width: 100%;
 }
 
@@ -21,5 +21,9 @@ h3 {
 @media (max-width: 550px) {
   h3 {
     font-size: .9em;
+  }
+  .question {
+    max-width: 540px;
+    width: 100%;
   }
 }
