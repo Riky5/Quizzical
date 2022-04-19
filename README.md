@@ -31,5 +31,8 @@ This is how the quiz page looks like after you selected the answers and clicked 
 ---
 
 The design was provided by the Scrimba course. I slightly modified it.
-
 ![Figma Design](src/images/figma_design.png)
+
+---
+Need to fix:  
+- At the moment you can select more answers
