@@ -6,7 +6,7 @@ export default function Answer(props) {
   }
   return (
     <div>
-      <button onClick={props.selectAnswer} className={props.isSelected ? 'selected-btn' : 'answer-btn'} style={styles}>{props.a}</button>
+      <button onClick={props.toggleAnswer} className={props.isSelected ? 'selected-btn' : 'answer-btn'} style={styles}>{props.a}</button>
     </div>
   )
 }

@@ -17,11 +17,19 @@ export default function Question(props) {
       a={answer.answer}
       isSelected={answer.isSelected}
       backgroundColor={answer.backgroundColor}
-      selectAnswer={()=>selectAnswer(answer.id)} 
+      toggleAnswer={()=>toggleAnswer(answer.id)} 
       />
     )
   })
 
+  function toggleAnswer(id) {
+    if (answers.every(answ => !answ.isSelected)) {
+      selectAnswer(id)
+    } else {
+      unselectAnswer(id)
+    } 
+  }
+  
   function selectAnswer(id) {
     const newAnswers = answers.map(answer=>{
       if (answer.id === id){
@@ -30,9 +38,18 @@ export default function Question(props) {
       return answer
     })
     setAnswers(newAnswers)
-    return;
   }
-  
+
+  function unselectAnswer(id) {
+    const newAnswers = answers.map(answer=>{
+      if (answer.id === id && answer.isSelected){
+        answer.isSelected = !answer.isSelected
+      }
+      return answer
+    })
+    setAnswers(newAnswers)
+  }
+
   return (
     <div className='question'>
         <h3>{props.data.question}</h3>
