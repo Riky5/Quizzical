@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e5228840-f545-44e0-bf92-7fba69c401da/deploy-status)](https://app.netlify.com/sites/quizzical-time/deploys)
 # Quizzical
 
 Last solo project from Scrimba React course.
