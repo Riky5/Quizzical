@@ -60,32 +60,32 @@ function App() {
     
     function checkAnswersOrPlayAgain() {
       if (result) {
-        setQuiz(false)
-        setScore(0)
-        setResult(false)
+        resetGame()
       } else {
         setResult(true)
-        const newData = newQuestionAndAnswers.map(obj=>{
-          const newAnswers =  obj.allAnswers.map(a=>{
-            if (a.answer === obj.correct_answer) {
-              a.backgroundColor = "#b3ffe0"
-              if (a.isSelected) {
-                setScore(prev => prev += 1)
-              }
-            } else if (a.isSelected && a.answer !== obj.correct_answer) {
-              a.backgroundColor = "#ff99c2"
-            } else {
-              a.backgroundColor = ""
-            }
-            return a
-          })
+        setNewQuestionAndAnswers(prev=>prev.map(obj=>{
           return {
              ...obj,
-             allAnswers: newAnswers
+             allAnswers: obj.allAnswers.map(a=>{
+              if (a.answer === obj.correct_answer) {
+                a.backgroundColor = "#b3ffe0"
+                if (a.isSelected) {
+                  setScore(prev => prev += 1)
+                }
+              } else if (a.isSelected && a.answer !== obj.correct_answer) {
+                a.backgroundColor = "#ff99c2"
+              }
+              return a
+            })
           }
-        })
-        setNewQuestionAndAnswers(newData)
+        }))
       }  
+    }
+
+    function resetGame() {
+      setQuiz(false)
+      setScore(0)
+      setResult(false)
     }
 
     const questionData = newQuestionAndAnswers.map(item => {
