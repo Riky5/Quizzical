@@ -67,9 +67,11 @@ function App() {
         setResult(true)
         const newData = newQuestionAndAnswers.map(obj=>{
           const newAnswers =  obj.allAnswers.map(a=>{
-            if (a.isSelected && a.answer === obj.correct_answer) {
-              setScore(prev => prev += 1)
+            if (a.answer === obj.correct_answer) {
               a.backgroundColor = "#b3ffe0"
+              if (a.isSelected) {
+                setScore(prev => prev += 1)
+              }
             } else if (a.isSelected && a.answer !== obj.correct_answer) {
               a.backgroundColor = "#ff99c2"
             } else {
