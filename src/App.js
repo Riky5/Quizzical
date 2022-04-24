@@ -22,7 +22,7 @@ function App() {
 
     function startQuiz() {
       setQuiz(true)
-      const newQA = questionAndAnswers.map(item=>{
+      setNewQuestionAndAnswers(questionAndAnswers.map(item=>{
         const answerArray = []
         item.incorrect_answers.forEach(answer=>{
           answerArray.push({
@@ -46,8 +46,7 @@ function App() {
           allAnswers: randomizeAnswers(answerArray),
           correct_answer: item.correct_answer
         }
-      })
-      setNewQuestionAndAnswers(newQA)
+      }))
     }
   
     function randomizeAnswers(arr) {
